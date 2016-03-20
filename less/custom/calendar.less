@@ -1,0 +1,162 @@
+@cal-border-size: 1px;
+@cal-select-size: 32px;
+@cal-select-border: 100%;
+@cal-cell-size: 40px;
+@cal-icon-size: 24px;
+@cal-font-size: 16px;
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%); //#333  #212121;
+@gray:                   lighten(@gray-base, 40%); // #666; 
+@gray-light:             lighten(@gray-base, 60%); //999 #bbb;
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@cal-col-primary:         #2196F3;//#337ab7;
+@cal-col-highlight:         #f0ad4e;
+@cal-col-weekend:          #d9534f;
+
+
+.ui-icon {
+   display: inline-block;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  line-height: 1;
+  font-size: @cal-icon-size;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+  speak: none;
+  text-rendering: auto;
+  transform: translate(0, 0);
+  vertical-align: middle;
+}
+
+
+.ui-datepicker {
+	display: none;
+	/*border: @cal-border-size solid @gray-light;*/
+	background-color: #FFF;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	text-align:center;
+	overflow:hidden;
+	
+	&-header {
+		position: relative;
+		height: @cal-cell-size;
+		color: @gray;
+		border-bottom: @cal-border-size solid @gray-lighter;
+	}
+	&-prev,
+	&-next {
+		position: absolute;
+		top: 0px;
+		width: @cal-cell-size;
+		height: @cal-cell-size;
+		cursor: pointer;
+		overflow: hidden;
+		text-align:center;
+		/*border-radius: @cal-select-border;*/
+	}
+	&-prev {
+		left: 0px;
+	}
+	&-next {
+		right: 0px;
+	}
+	&-prev span,
+	&-next span {
+		line-height: @cal-cell-size;
+		color:@gray-light;
+		/*display: block;
+		position: absolute;
+		left: 50%;top: 50%; 
+		margin-left: -8px;
+		margin-top: -8px;*/
+	}
+	
+	
+	&-prev-hover, 
+	&-next-hover {
+		border: 0;
+		background-color:@gray-light;
+	}
+	
+	&-prev-hover span,
+	&-next-hover span {
+		color:#fff;
+	}
+	
+	&-title {
+		font-size: @cal-font-size;
+		line-height: @cal-cell-size;
+		text-align: center;
+	}
+	&-title select {font-size: @cal-font-size;}
+	select.ui-datepicker-month{}
+	select.ui-datepicker-year {width: 56px;}
+	table {
+		border-collapse: collapse;
+		background-color:#FFF;
+		/*
+		border: @cal-border-size} solid @gray;
+		width: 100%;
+		margin: .6em 1% .4em 1%;
+		float:right;
+		*/
+
+	}
+	th, td {
+		font-weight: normal;
+		text-align: center;
+		font-size: @cal-font-size;
+		width: @cal-cell-size;
+		height: @cal-cell-size;
+		vertical-align:middle;	
+		/*border: @cal-border-size} solid #eEeDeD;*/
+	}
+	th{
+		color:@gray;
+		font-size: ceil((@cal-font-size * 0.80));
+	}
+	td span,
+	td a {
+		text-decoration: none;
+		font-size: @cal-font-size;
+		line-height:@cal-select-size;
+		display: block;
+		width:@cal-select-size;
+		height:@cal-select-size;
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+		vertical-align:middle;
+	}
+
+	.ui-state-default{ border: @cal-border-size solid transparent; color: @gray; }
+	&-week-end .ui-state-default{ color:@cal-col-weekend;}
+	&-week-end.ui-state-disabled .ui-state-default{color:@gray-light;}
+	.ui-state-disabled.ui-datepicker-today .ui-state-default{border: @cal-border-size solid @gray-light; color:@gray-light;border-radius: @cal-select-border;}
+	.ui-state-highlight {background-color: @cal-col-highlight;border-radius: @cal-select-border;}
+	.ui-state-disabled .ui-state-default{color:@gray-lighter;}
+
+	table .ui-state-hover {border: @cal-border-size solid @gray;border-radius: @cal-select-border;}
+
+	.ui-state-active {
+		border: @cal-border-size solid @cal-col-primary;
+		background-color: @cal-col-primary;
+		color: #FFF;
+		font-style:normal;
+		border-radius: @cal-select-border;
+	}
+
+	 &-week-end .ui-state-active {
+		color: #FFF;
+	}
+
+}
